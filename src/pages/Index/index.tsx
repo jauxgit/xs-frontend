@@ -22,11 +22,15 @@ const Index: React.FC = () => {
   const onSearch: SearchProps['onSearch'] = async (value) => {
     setLoading(true);
     try {
-      const res = await listInterfaceInfoUsingGET({
-        name: value,
-      });
-      console.log(res);
-      setList(res?.data ?? []);
+      if (value === "") {
+        const res = await listInterfaceInfoUsingGET({});
+        setList(res?.data ?? []);
+      } else {
+        const res = await listInterfaceInfoUsingGET({
+          name: value,
+        });
+        setList(res?.data ?? []);
+      }
     } catch (err: any) {
       message.error('请求失败', err.message);
     }
