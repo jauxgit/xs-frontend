@@ -12,16 +12,16 @@
     path: '/user',
     layout: false,
     routes: [
-      { path: '/user/login', component: './User/Login' },
-      { path: '/user/register', component: './User/Register' },
-      { path: '/user/resetPassword', component: './User/ResetPassword' },
+      { name: '用户登录', path: '/user/login', component: './User/Login' },
+      { name: '用户注册', path: '/user/register', component: './User/Register' },
+      { name: '重置密码', path: '/user/resetPassword', component: './User/ResetPassword' },
     ],
   },
   {
+    name: '管理员页面',
     path: '/admin',
     icon: 'crown',
     access: 'canAdmin',
-    name: '管理员页面',
     routes: [
       {
         name: '接口管理',
@@ -41,9 +41,11 @@
         path: '/admin/recharge',
         component: './Admin/InterfaceRecharge',
       },
-      { name: '用户管理',
+      {
+        name: '用户管理',
         path: '/admin/user',
-        component: './Admin/UserManage' },
+        component: './Admin/UserManage',
+      },
     ],
   },
   {
