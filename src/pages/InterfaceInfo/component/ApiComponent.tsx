@@ -44,9 +44,9 @@ const ApiAComponent: React.FC<Props> = (props) => {
     },
   ];
 
-  const parseRequest = JSON.parse((values?.requestParams) as string);
-  const parseResponse = JSON.parse((values?.responseHeader) as string);
-  const parseRequestHeader = JSON.parse((values?.requestHeader) as string);
+  const parseRequest = values ? JSON.parse((values?.requestParams) as string) : [];
+  const parseResponse = values ? JSON.parse((values?.responseHeader) as string) : [];
+  const parseRequestHeader = values ? JSON.parse((values?.requestHeader) as string) : [];
   const requestData: InterfaceProp[] = [
     {
       ContentType: parseRequestHeader.ContentType,
